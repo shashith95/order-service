@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd"
+                   objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+
+    <changeSet id="1704160814341-1" author="shashith.aravinda">
+        <createTable tableName="order">
+            <column autoIncrement="true" name="ORDER_ID" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORDER_ID"/>
+            </column>
+            <column name="PRODUCT_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="QUANTITY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_STATUS" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_AMOUNT" type="DECIMAL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
