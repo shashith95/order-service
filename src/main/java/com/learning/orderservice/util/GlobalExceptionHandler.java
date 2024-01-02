@@ -2,6 +2,7 @@ package com.learning.orderservice.util;
 
 
 import com.learning.orderservice.exception.DataNotFoundException;
+import com.learning.orderservice.exception.ExternalClientException;
 import com.learning.orderservice.exception.GeneralException;
 import com.learning.orderservice.model.common.ApiResponse;
 import jakarta.validation.ConstraintViolationException;
@@ -33,6 +34,8 @@ public class GlobalExceptionHandler {
             ConstraintViolationException.class,
             DataNotFoundException.class,
             NotReadablePropertyException.class,
+            GeneralException.class,
+            ExternalClientException.class,
             Exception.class
     })
     public ResponseEntity<ApiResponse> handleException(Exception ex) {
@@ -56,6 +59,9 @@ public class GlobalExceptionHandler {
             errorMessages.add(ex.getMessage());
         } else if (ex instanceof GeneralException generalException) {
             errorCode = generalException.getErrorCode();
+            errorMessages.add(ex.getMessage());
+        } else if (ex instanceof ExternalClientException externalClientException) {
+            errorCode = externalClientException.getErrorCode();
             errorMessages.add(ex.getMessage());
         } else if (ex instanceof NotReadablePropertyException) {
             status = HttpStatus.BAD_REQUEST;

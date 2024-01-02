@@ -5,7 +5,12 @@
                    objectQuotingStrategy="QUOTE_ALL_OBJECTS">
 
     <changeSet id="1704160814341-1" author="shashith.aravinda">
-        <createTable tableName="order">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="ORDER"/>
+            </not>
+        </preConditions>
+        <createTable tableName="ORDER">
             <column autoIncrement="true" name="ORDER_ID" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORDER_ID"/>
             </column>
