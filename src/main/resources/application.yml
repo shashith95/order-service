@@ -1,6 +1,8 @@
 spring:
   application:
     name: order-service
+  config:
+    import: configserver:http://localhost:9296
   datasource:
     username: order_user
     password: 1234
@@ -26,10 +28,10 @@ spring:
   banner:
     location: orderServiceBanner.txt
 
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8080/eureka}
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8080/eureka}
 
 server:
   port: 8082
