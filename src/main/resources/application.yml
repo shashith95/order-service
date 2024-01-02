@@ -8,23 +8,6 @@ spring:
     password: 1234
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=order
-  jpa:
-    hibernate:
-      ddl-auto: none #keep this as none, do schema changes using liquibase
-      #      this is included to support uppercase values for table names and column names
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        globally_quoted_identifiers: true
-  liquibase:
-    url: ${spring.datasource.url}
-    user: ${spring.datasource.username}
-    password: ${spring.datasource.password}
-    driver-class-name: ${spring.datasource.driver-class-name}
-    change-log: classpath:db/changelog/postgres/changelog-master.xml
-    enabled: true
   banner:
     location: orderServiceBanner.txt
 
