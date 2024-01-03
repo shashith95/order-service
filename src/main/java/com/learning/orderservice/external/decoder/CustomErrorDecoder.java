@@ -1,8 +1,8 @@
 package com.learning.orderservice.external.decoder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.learning.orderservice.exception.ExternalClientException;
-import com.learning.orderservice.model.common.ApiResponse;
+import com.learning.commondataservice.exception.ExternalClientException;
+import com.learning.commondataservice.model.common.ApiResponse;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import org.slf4j.Logger;

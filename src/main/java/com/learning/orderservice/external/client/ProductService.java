@@ -1,6 +1,6 @@
 package com.learning.orderservice.external.client;
 
-import com.learning.orderservice.model.common.ApiResponse;
+import com.learning.commondataservice.model.common.ApiResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.cloud.openfeign.FeignClient;

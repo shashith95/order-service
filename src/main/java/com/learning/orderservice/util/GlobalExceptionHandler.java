@@ -1,10 +1,10 @@
 package com.learning.orderservice.util;
 
 
-import com.learning.orderservice.exception.DataNotFoundException;
-import com.learning.orderservice.exception.ExternalClientException;
-import com.learning.orderservice.exception.GeneralException;
-import com.learning.orderservice.model.common.ApiResponse;
+import com.learning.commondataservice.exception.DataNotFoundException;
+import com.learning.commondataservice.exception.ExternalClientException;
+import com.learning.commondataservice.exception.GeneralException;
+import com.learning.commondataservice.model.common.ApiResponse;
 import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.learning.orderservice.util.ResponseHandler.generateErrorResponse;
+import static com.learning.commondataservice.util.ResponseHandler.generateErrorResponse;
 
 
 @ControllerAdvice

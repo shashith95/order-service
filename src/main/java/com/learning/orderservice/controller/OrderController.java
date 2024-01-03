@@ -1,8 +1,8 @@
 package com.learning.orderservice.controller;
 
 
+import com.learning.commondataservice.model.common.ApiResponse;
 import com.learning.orderservice.mapper.EntityDtoMapper;
-import com.learning.orderservice.model.common.ApiResponse;
 import com.learning.orderservice.model.entity.Order;
 import com.learning.orderservice.model.request.OrderRequest;
 import com.learning.orderservice.service.OrderService;
@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static com.learning.orderservice.util.ResponseHandler.generateResponse;
+import static com.learning.commondataservice.util.ResponseHandler.generateResponse;
 
 
 @RestController

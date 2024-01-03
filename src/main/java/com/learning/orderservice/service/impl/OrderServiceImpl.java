@@ -1,6 +1,6 @@
 package com.learning.orderservice.service.impl;
 
-import com.learning.orderservice.exception.DataNotFoundException;
+import com.learning.commondataservice.exception.DataNotFoundException;
 import com.learning.orderservice.external.client.ProductService;
 import com.learning.orderservice.mapper.EntityDtoMapper;
 import com.learning.orderservice.model.entity.Order;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-import static com.learning.orderservice.util.DateTimeUtils.getCurrentDateTimeUtc;
+import static com.learning.commondataservice.util.DateTimeUtils.getCurrentDateTimeUtc;
 
 @Service
 public class OrderServiceImpl implements OrderService {
