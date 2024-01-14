@@ -11,15 +11,19 @@ spring:
   banner:
     location: orderServiceBanner.txt
 
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8080/eureka}
-
 server:
   port: 8082
 
-#management:
-#  tracing:
-#    sampling:
-#      probability: 1.0
+resilience4j:
+  circuitbreaker:
+    instances:
+      external:
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: COUNT_BASED
