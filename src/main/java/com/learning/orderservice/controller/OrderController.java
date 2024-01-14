@@ -52,11 +52,10 @@ public class OrderController {
     @RequestMapping(value = "place-order", method = {RequestMethod.PUT, RequestMethod.POST})
     public ResponseEntity<ApiResponse> placeOrder(@Valid @RequestBody OrderRequest orderRequest) {
         logger.info("Save or Update employer API triggered with request body: {}", orderRequest);
-        Order order = orderService.placeOrder(orderRequest);
 
         return generateResponse(orderRequest.orderId().isEmpty() ? HttpStatus.CREATED : HttpStatus.OK,
                 "Order " + (orderRequest.orderId().isEmpty() ? "Created" : "Updated") + " Successfully",
                 "100",
-                entityDtoMapper.orderEntityToDto(order));
+                orderService.placeOrder(orderRequest));
     }
 }
