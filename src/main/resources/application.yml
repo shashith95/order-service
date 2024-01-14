@@ -10,6 +10,22 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=order
   banner:
     location: orderServiceBanner.txt
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-14992024.okta.com/oauth2/default
+      client:
+        registration:
+          internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope: internal
+            client-id: 0oaegd5kajm5M6zFi5d7
+            client-secret: bhCrYLNiRAyXqeG3JzWrh0NaKRMYZW8OiO6uT-6GFGH5WS-nmT6FqRQY7SbnvTzy
+        provider:
+          okta:
+            issuer-uri: https://dev-14992024.okta.com/oauth2/default
 
 server:
   port: 8082

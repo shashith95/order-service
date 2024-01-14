@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import static com.learning.commondataservice.util.ResponseHandler.generateResponse;
@@ -30,6 +31,7 @@ public class OrderController {
         this.entityDtoMapper = entityDtoMapper;
     }
 
+    @PreAuthorize("hasAnyAuthority('Admin', 'Customer')")
     @GetMapping
     public ResponseEntity<ApiResponse> getOrderById(@RequestParam Long orderId) {
         logger.info("Get order by ID: {} API triggered", orderId);
@@ -49,6 +51,7 @@ public class OrderController {
                 entityDtoMapper.orderEntityListToDtoList(orderList));
     }
 
+    @PreAuthorize("hasAuthority('Customer')")
     @RequestMapping(value = "place-order", method = {RequestMethod.PUT, RequestMethod.POST})
     public ResponseEntity<ApiResponse> placeOrder(@Valid @RequestBody OrderRequest orderRequest) {
         logger.info("Save or Update employer API triggered with request body: {}", orderRequest);
