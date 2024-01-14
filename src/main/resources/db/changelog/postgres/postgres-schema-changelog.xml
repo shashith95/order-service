@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd"
                    objectQuotingStrategy="QUOTE_ALL_OBJECTS">
 
-    <changeSet id="1704160814341-1" author="shashith.aravinda">
+    <changeSet id="order-1.0" author="shashith.aravinda">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="ORDER"/>
